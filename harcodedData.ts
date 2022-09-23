@@ -1,8 +1,8 @@
-type Photographer = {
+export type Photographer = {
   tags: string[];
   firstName: string;
   lastName: string;
-  profilePicDominantColor: string | null;
+  profilePicDominantColor?: string;
   profilePicUrl: string | null;
   id: number;
   city: string;
@@ -11,18 +11,18 @@ type Photographer = {
   tagLine: string | null;
 };
 
-const photographers: Photographer[] = [
+const allPhotographers: Photographer[] = [
   {
     firstName: "Mimi Keel",
     lastName: "Keel",
     id: 243,
     city: "London",
     country: "UK",
-    tags: ["profilePicUrl", "events", "travel", "animals"],
+    tags: ["portrait", "events", "travel", "animals"],
     tagLine: "Voir le beau dans le quotidien",
     price: 400,
     profilePicUrl: "MimiKeel.jpg",
-    profilePicDominantColor: "",
+    profilePicDominantColor: "#ffa366",
   },
   {
     firstName: "Ellie-Rose",
@@ -34,7 +34,7 @@ const photographers: Photographer[] = [
     tagLine: "Capturer des compositions complexes",
     price: 250,
     profilePicUrl: "EllieRoseWilkens.jpg",
-    profilePicDominantColor: "",
+    profilePicDominantColor: "#660033",
   },
   {
     firstName: "Tracy",
@@ -43,10 +43,9 @@ const photographers: Photographer[] = [
     city: "Montreal",
     country: "Canada",
     tags: ["art", "fashion", "events"],
-    tagLine: "Photographe freelance",
+    tagLine: "Photographe freelance trèès longue description qui doit dépasser",
     price: 500,
-    profilePicUrl: "TracyGalindo.jpg",
-    profilePicDominantColor: "",
+    profilePicUrl: "http://placekitten.com/200/300",
   },
   {
     firstName: "Nabeel",
@@ -54,11 +53,10 @@ const photographers: Photographer[] = [
     id: 527,
     city: "Mexico City",
     country: "Mexico",
-    tags: ["travel", "profilePicUrl"],
+    tags: ["travel", "portrait"],
     tagLine: "Toujours aller de l'avant",
     price: 350,
     profilePicUrl: "NabeelBradford.jpg",
-    profilePicDominantColor: "",
   },
   {
     firstName: "Rhode",
@@ -70,7 +68,6 @@ const photographers: Photographer[] = [
     tagLine: "Je crée des souvenirs",
     price: 275,
     profilePicUrl: "RhodeDubois.jpg",
-    profilePicDominantColor: "",
   },
   {
     firstName: "Marcel",
@@ -82,11 +79,10 @@ const photographers: Photographer[] = [
     tagLine: "Toujours à la recherche de LA photo",
     price: 300,
     profilePicUrl: "MarcelNikolic.jpg",
-    profilePicDominantColor: "",
   },
 ];
 
-const tagsHashMap = photographers.reduce((tagsAcc, photographers) => {
+const tagsHashMap = allPhotographers.reduce((tagsAcc, photographers) => {
   photographers.tags.forEach((tag) => {
     if (tagsAcc[tag] == null) {
       tagsAcc[tag] = true;
@@ -97,4 +93,4 @@ const tagsHashMap = photographers.reduce((tagsAcc, photographers) => {
 
 const allTags = Object.keys(tagsHashMap);
 
-export { photographers, allTags };
+export { allPhotographers as photographers, allTags };

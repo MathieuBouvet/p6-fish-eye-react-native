@@ -6,6 +6,7 @@ export default StyleSheet.create({
     position: "absolute",
     alignItems: "center",
     right: 0,
+    zIndex: 10,
     backgroundColor: "white",
   },
   mainOpened: {
